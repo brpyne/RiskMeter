@@ -11,7 +11,7 @@ namespace RiskMeter.Core
                 .AsInterfaces()
                 .RegisterAsLazySingleton();
 				
-            RegisterAppStart<ViewModels.FirstViewModel>();
+            RegisterAppStart<ViewModels.RiskViewModel>();
         }
     }
 }
