@@ -5,16 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using RiskMeter.Core.Models;
 
-namespace RiskMeter.Core.Data
+namespace RiskMeter.Core.Services
 {
-    public interface ICrimeStatisticsRepository
+    public interface ICrimeStatisticsService
     {
         CrimeStatisticsModel GetCrimeStatistics(string cityName, string stateCode, int year);
     }
 
-    public class CrimeStatisticsRepository : ICrimeStatisticsRepository
+    public class CrimeStatisticsService : BaseService, ICrimeStatisticsService
     {
-        public CrimeStatisticsRepository()
+        public CrimeStatisticsService()
         {
             
         }
