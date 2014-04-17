@@ -9,7 +9,7 @@ namespace RiskMeter.Core
     {
         public override void Initialize()
         {
-            Mvx.RegisterType<IRiskCalculator, RiskCalculator>();
+            Mvx.RegisterType<IRiskCalculator, CrimeRepository>();
             Mvx.RegisterSingleton<IMvxAppStart>(new MvxAppStart<RiskViewModel>());
         }
     }
