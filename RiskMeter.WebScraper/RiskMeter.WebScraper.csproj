@@ -7,8 +7,8 @@
     <ProjectGuid>{9D8736A1-27F4-4484-96DE-49DF0D24FCF2}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebScrape</RootNamespace>
-    <AssemblyName>WebScrape</AssemblyName>
+    <RootNamespace>RiskMeter.WebScraper</RootNamespace>
+    <AssemblyName>RiskMeter.WebScraper</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CrimeDataScraper.cs" />
+    <Compile Include="DataScraper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
