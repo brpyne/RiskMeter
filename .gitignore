@@ -91,3 +91,4 @@ UpgradeLog*.XML
 assets
 bin
 obj
+*.dll

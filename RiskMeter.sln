@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiskMeter.Core", "RiskMeter.Core\RiskMeter.Core.csproj", "{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}"
-EndProject
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiskMeter.UI.Touch", "RiskMeter.UI.Touch\RiskMeter.UI.Touch.csproj", "{DB548A28-7141-42E7-9F0F-08B24AD9A3E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiskMeter.Core", "RiskMeter.Core\RiskMeter.Core.csproj", "{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,25 +28,33 @@ Global
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Ad-Hoc|Any CPU.Build.0 = Release|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Ad-Hoc|iPhone.Build.0 = Release|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Ad-Hoc|iPhoneSimulator.Build.0 = Release|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Ad-Hoc|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Ad-Hoc|Mixed Platforms.Build.0 = Release|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.AppStore|Any CPU.Build.0 = Release|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.AppStore|iPhone.ActiveCfg = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.AppStore|iPhone.Build.0 = Release|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.AppStore|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.AppStore|iPhoneSimulator.Build.0 = Release|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.AppStore|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.AppStore|Mixed Platforms.Build.0 = Release|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Debug|iPhone.Build.0 = Debug|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Release|iPhone.Build.0 = Release|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{DB548A28-7141-42E7-9F0F-08B24AD9A3E0}.Ad-Hoc|Any CPU.ActiveCfg = Ad-Hoc|iPhone
@@ -91,6 +97,33 @@ Global
 		{DB548A28-7141-42E7-9F0F-08B24AD9A3E0}.Release|Mixed Platforms.ActiveCfg = Release|iPhone
 		{DB548A28-7141-42E7-9F0F-08B24AD9A3E0}.Release|Mixed Platforms.Build.0 = Release|iPhone
 		{DB548A28-7141-42E7-9F0F-08B24AD9A3E0}.Release|Mixed Platforms.Deploy.0 = Release|iPhone
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Ad-Hoc|Any CPU.Build.0 = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Ad-Hoc|iPhone.ActiveCfg = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Ad-Hoc|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Ad-Hoc|Mixed Platforms.Build.0 = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.AppStore|Any CPU.Build.0 = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.AppStore|iPhone.ActiveCfg = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.AppStore|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.AppStore|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.AppStore|Mixed Platforms.Build.0 = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = RiskMeter.UI.Touch\RiskMeter.UI.Touch.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

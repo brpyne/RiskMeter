@@ -79,18 +79,28 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Setup.cs" />
-    <Compile Include="Views\RiskView.cs" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />
+    <Compile Include="Views\HomeView.cs" />
+    <Compile Include="Views\HomeView.designer.cs">
+      <DependentUpon>HomeView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RiskMeter.Core\RiskMeter.Core.csproj">
-      <Project>{403aa3de-d635-4e75-8c6e-34facc20e7d7}</Project>
+      <Project>{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}</Project>
       <Name>RiskMeter.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="monotouch" />
+    <Reference Include="System.Windows">
+      <HintPath>..\..\..\Downloaded code\NETPortable\v4.5\System.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="Cirrious.CrossCore">
       <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.1.1\lib\MonoTouch\Cirrious.CrossCore.dll</HintPath>
     </Reference>
@@ -102,7 +112,6 @@
     </Reference>
     <Reference Include="Cirrious.MvvmCross.Binding">
       <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.1.1\lib\MonoTouch\Cirrious.MvvmCross.Binding.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Cirrious.MvvmCross.Binding.Touch">
       <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.1.1\lib\MonoTouch\Cirrious.MvvmCross.Binding.Touch.dll</HintPath>
@@ -115,9 +124,10 @@
     </Reference>
     <Reference Include="MonoTouch.Dialog-1" />
     <Reference Include="System" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="monotouch" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
+  <ItemGroup>
+    <InterfaceDefinition Include="Views\HomeView.xib" />
+    <InterfaceDefinition Include="Views\MainStoryboard.storyboard" />
+  </ItemGroup>
 </Project>
