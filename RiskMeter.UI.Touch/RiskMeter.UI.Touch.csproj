@@ -76,6 +76,8 @@
   <ItemGroup>
     <Compile Include="DebugTrace.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
+    <Compile Include="LocationManager.cs" />
+    <Compile Include="LocationUpdatedEventArgs.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Setup.cs" />

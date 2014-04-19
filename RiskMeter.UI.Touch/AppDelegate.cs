@@ -17,6 +17,8 @@ namespace RiskMeter.UI.Touch
     {
         private UIWindow _window;
 
+        public static LocationManager Manager = null;
+
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
 			_window = new UIWindow(UIScreen.MainScreen.Bounds);
