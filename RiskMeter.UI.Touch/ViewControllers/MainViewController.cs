@@ -4,6 +4,7 @@ using Cirrious.MvvmCross.Touch.Views;
 using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
 using MonoTouch.UIKit;
+using RiskMeter.Core.Models;
 
 namespace RiskMeter.UI.Touch.ViewControllers
 {
@@ -18,30 +19,42 @@ namespace RiskMeter.UI.Touch.ViewControllers
 			// ios7 layout
             if (RespondsToSelector(new Selector("edgesForExtendedLayout")))
                EdgesForExtendedLayout = UIRectEdge.None;
-			   
-            var label = new UILabel(new RectangleF(10, 10, 300, 40));
-            Add(label);
-            var textField = new UITextField(new RectangleF(10, 50, 300, 40));
-            Add(textField);
 
-            var header = new UIView(new RectangleF(0,0,320,420))
+            var currentLocation = GetCurrentLocation();
+
+            var lblCurrentLocation = new UILabel
             {
-                BackgroundColor = UIColor.Blue,
+                Text = currentLocation.ToString(),
+                Frame = new RectangleF(10, 10, 200, 50)
             };
+            Add(lblCurrentLocation);
 
-            var location = new UILabel(new RectangleF(10, 10, 300, 40));
-            location.Text = "test";
-            header.Add(location);
+            var btnCurrentLocation = new UIButton(UIButtonType.RoundedRect) {Frame = new RectangleF(10, 100, 300, 50)};
+            btnCurrentLocation.SetTitleColor(UIColor.Black, UIControlState.Normal);
+            btnCurrentLocation.SetTitle("Current Location", UIControlState.Normal);
+            btnCurrentLocation.BackgroundColor = UIColor.LightGray;
+            Add(btnCurrentLocation);
 
-            Add(header);
+            var btnCustomLocation = new UIButton(UIButtonType.RoundedRect) {Frame = new RectangleF(10, 200, 300, 50)};
+            btnCustomLocation.SetTitleColor(UIColor.Black, UIControlState.Normal);
+            btnCustomLocation.SetTitle("Custom Location", UIControlState.Normal);
+            btnCustomLocation.BackgroundColor = UIColor.LightGray;
+            Add(btnCustomLocation);
 
             var set = this.CreateBindingSet<MainViewController, Core.ViewModels.MainViewModel>();
-            set.Bind(label).To(vm => vm.CurrentLocation);
-            set.Bind(textField).To(vm => vm.CurrentLocation);
+            set.Bind(currentLocation).To(vm => vm.CurrentLocation);
+            set.Bind(btnCurrentLocation).To(vm => vm.CurrentLocationCommand);
+            set.Bind(btnCustomLocation).To(vm => vm.CustomLocationCommand);
             set.Apply();
+        }
 
-
-
+        private Location GetCurrentLocation()
+        {
+            return new Location()
+            {
+                City = "Detroit",
+                State = "MI"
+            };
         }
     }
 }

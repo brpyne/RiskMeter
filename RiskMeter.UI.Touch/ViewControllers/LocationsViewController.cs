@@ -1,16 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using Cirrious.MvvmCross.Touch.Views;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using RiskMeter.Core.Models;
 
-namespace RiskMeter.UI.Touch.Views
+namespace RiskMeter.UI.Touch.ViewControllers
 {
-    public class LocationsView : MvxViewController
+    public class LocationsViewController : MvxViewController
     {
         readonly Action<Location> LocationSelected;
         public IReadOnlyList<Location> Locations;

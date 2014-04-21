@@ -15,9 +15,9 @@ namespace RiskMeter.Core.Services
         {
             return new List<Location>
             {
-                new Location {City = "Detroit", State = "Michigan"},
-                new Location {City = "Sterling Heights", State = "Michigan"},
-                new Location {City = "Columbus", State = "Ohio"}
+                new Location {City = "Detroit", State = "MI"},
+                new Location {City = "Sterling Heights", State = "MI"},
+                new Location {City = "Columbus", State = "OH"}
             };
         }
 
