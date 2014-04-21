@@ -9,7 +9,7 @@ namespace RiskMeter.Core.Services
 {
     public interface ICrimeStatisticsService
     {
-        CrimeStatisticsModel GetCrimeStatistics(string cityName, string stateCode, int year);
+        CrimeStatistics GetCrimeStatistics(string cityName, string stateCode, int year);
     }
 
     public class CrimeStatisticsService : BaseService, ICrimeStatisticsService
@@ -19,9 +19,9 @@ namespace RiskMeter.Core.Services
             
         }
 
-        public CrimeStatisticsModel GetCrimeStatistics(string cityName, string stateCode, int year)
+        public CrimeStatistics GetCrimeStatistics(string cityName, string stateCode, int year)
         {
-            var crimeStatistics = new CrimeStatisticsModel()
+            var crimeStatistics = new CrimeStatistics()
             {
                 City = cityName,
                 State = stateCode,

@@ -86,7 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppDelegate.cs.txt" />
-    <Content Include="ToDo-MvvmCross\_ Touch UI.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RiskMeter.Core\RiskMeter.Core.csproj">

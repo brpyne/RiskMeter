@@ -1,6 +1,6 @@
 namespace RiskMeter.Core.Models
 {
-    public class CrimeStatisticsModel
+    public class CrimeStatistics
     {
         public string City { get; set; }
         public string State { get; set; }
