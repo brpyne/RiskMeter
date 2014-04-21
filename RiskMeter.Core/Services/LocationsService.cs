@@ -1,38 +1,29 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using RiskMeter.Core.Models;
 
 namespace RiskMeter.Core.Services
 {
     public interface ILocationsService
     {
-        List<string> GetStateCodes();
-        List<string> GetCityNames(string stateCode);
+        List<Location> GetLocations();
     }
 
     public class LocationsService : BaseService, ILocationsService
     {
-        public List<string> GetStateCodes()
+        public List<Location> GetLocations()
         {
-            return new List<string> { "MI", "IN", "OH" };
+            return new List<Location>
+            {
+                new Location {City = "Detroit", State = "Michigan"},
+                new Location {City = "Sterling Heights", State = "Michigan"},
+                new Location {City = "Columbus", State = "Ohio"}
+            };
         }
 
-        public List<string> GetCityNames(string stateCode)
+        public IEnumerable<Location> GetLocations(string state)
         {
-            if (stateCode.Equals("MI"))
-            {
-                return new List<string>() {"Sterling Heights", "Detroit"};
-            }
-
-            if (stateCode.Equals("IN"))
-            {
-                return new List<string>() { "Indianapolis", "Fort Wayne" }; 
-            }
-            
-            if (stateCode.Equals("OH"))
-            {
-                return new List<string>() { "Cleveland", "Dayton" }; 
-            }
-
-            return new List<string>();
+            return GetLocations().Where(x => x.State == state);
         }
     }
 }

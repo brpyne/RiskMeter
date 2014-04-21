@@ -1,14 +1,14 @@
 using System.Drawing;
 using Cirrious.MvvmCross.Binding.BindingContext;
 using Cirrious.MvvmCross.Touch.Views;
+using MonoTouch.Foundation;
 using MonoTouch.ObjCRuntime;
 using MonoTouch.UIKit;
-using MonoTouch.Foundation;
 
-namespace RiskMeter.UI.Touch.Views
+namespace RiskMeter.UI.Touch.ViewControllers
 {
     [Register("MainView")]
-    public class MainView : MvxViewController
+    public class MainViewController : MvxViewController
     {
         public override void ViewDidLoad()
         {
@@ -35,10 +35,13 @@ namespace RiskMeter.UI.Touch.Views
 
             Add(header);
 
-            var set = this.CreateBindingSet<MainView, Core.ViewModels.MainViewModel>();
+            var set = this.CreateBindingSet<MainViewController, Core.ViewModels.MainViewModel>();
             set.Bind(label).To(vm => vm.CurrentLocation);
             set.Bind(textField).To(vm => vm.CurrentLocation);
             set.Apply();
+
+
+
         }
     }
 }

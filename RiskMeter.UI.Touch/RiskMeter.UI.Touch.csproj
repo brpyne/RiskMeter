@@ -79,7 +79,10 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Setup.cs" />
-    <Compile Include="Views\MainView.cs" />
+    <Compile Include="ViewControllers\MainViewController.cs" />
+    <Compile Include="Views\CustomViewCell.cs" />
+    <Compile Include="Views\LocationsView.cs" />
+    <Compile Include="Views\SpinnerCell.cs" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />
