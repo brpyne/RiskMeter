@@ -13,14 +13,18 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>MinimumOSVersion</key>
-	<string>7.0</string>
+	<string>3.2</string>
 	<key>CFBundleDisplayName</key>
 	<string>Risk Meter</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.brpyne.riskmeter</string>
 	<key>CFBundleVersion</key>
-	<string>0.0.1</string>
-	<key>NSMainNibFile</key>
 	<string></string>
+	<key>NSMainNibFile</key>
+	<string></string>  
+	<key>UIBackgroundModes</key>
+    <array>
+        <string>location</string>
+    </array>
 </dict>
 </plist>

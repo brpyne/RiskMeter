@@ -1,13 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhoneRetina.7.1" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="RiskMeter.UI.Touch/Views/HomeView.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="RiskMeter.Core/App.cs">
     <Files>
-      <File FileName="RiskMeter.Core/App.cs" Line="1" Column="1" />
-      <File FileName="RiskMeter.UI.Touch/LinkerPleaseInclude.cs" Line="1" Column="1" />
-      <File FileName="RiskMeter.UI.Touch/AppDelegate.cs" Line="1" Column="1" />
-      <File FileName="RiskMeter.UI.Touch/Setup.cs" Line="1" Column="1" />
-      <File FileName="RiskMeter.UI.Touch/Main.cs" Line="1" Column="1" />
-      <File FileName="RiskMeter.UI.Touch/Views/HomeView.cs" Line="29" Column="4" />
+      <File FileName="RiskMeter.Core/App.cs" Line="1" Column="7" />
       <File FileName="RiskMeter.Core/ViewModels/HomeViewModel.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>

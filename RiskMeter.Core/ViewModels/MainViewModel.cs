@@ -3,9 +3,9 @@ using RiskMeter.Core.Services;
 
 namespace RiskMeter.Core.ViewModels
 {
-	public class HomeViewModel : MvxViewModel
+	public class MainViewModel : MvxViewModel
 	{
-		public HomeViewModel ()
+		public MainViewModel ()
 		{
 			_currentLocation = "Detroit, MI";
 		}

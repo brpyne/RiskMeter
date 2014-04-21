@@ -10,7 +10,7 @@ namespace RiskMeter.Core
         public override void Initialize()
         {
 			Mvx.RegisterType<ICrimeStatisticsService, CrimeStatisticsService>();
-			Mvx.RegisterSingleton<IMvxAppStart>(new MvxAppStart<HomeViewModel>());
+			Mvx.RegisterSingleton<IMvxAppStart>(new MvxAppStart<MainViewModel>());
         }
     }
 }

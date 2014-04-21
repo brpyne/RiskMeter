@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{DB548A28-7141-42E7-9F0F-08B24AD9A3E0}</ProjectGuid>
+    <ProjectGuid>{81DE74D9-F649-4D35-BE83-CF3A15FBB18A}</ProjectGuid>
     <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
     <RootNamespace>RiskMeter.UI.Touch</RootNamespace>
@@ -79,28 +79,22 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Setup.cs" />
+    <Compile Include="Views\MainView.cs" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />
-    <Compile Include="Views\HomeView.cs" />
-    <Compile Include="Views\HomeView.designer.cs">
-      <DependentUpon>HomeView.cs</DependentUpon>
-    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AppDelegate.cs.txt" />
+    <Content Include="ToDo-MvvmCross\_ Touch UI.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RiskMeter.Core\RiskMeter.Core.csproj">
-      <Project>{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}</Project>
+      <Project>{403aa3de-d635-4e75-8c6e-34facc20e7d7}</Project>
       <Name>RiskMeter.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="monotouch" />
-    <Reference Include="System.Windows">
-      <HintPath>..\..\..\Downloaded code\NETPortable\v4.5\System.Windows.dll</HintPath>
-    </Reference>
     <Reference Include="Cirrious.CrossCore">
       <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.1.1\lib\MonoTouch\Cirrious.CrossCore.dll</HintPath>
     </Reference>
@@ -122,12 +116,10 @@
     <Reference Include="Cirrious.MvvmCross.Touch">
       <HintPath>..\packages\MvvmCross.HotTuna.MvvmCrossLibraries.3.1.1\lib\MonoTouch\Cirrious.MvvmCross.Touch.dll</HintPath>
     </Reference>
-    <Reference Include="MonoTouch.Dialog-1" />
     <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="monotouch" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
-  <ItemGroup>
-    <InterfaceDefinition Include="Views\HomeView.xib" />
-    <InterfaceDefinition Include="Views\MainStoryboard.storyboard" />
-  </ItemGroup>
 </Project>
