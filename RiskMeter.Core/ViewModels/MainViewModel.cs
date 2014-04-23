@@ -28,7 +28,7 @@ namespace RiskMeter.Core.ViewModels
         {
             get
             {
-                return new MvxCommand(() => ShowViewModel<LocationsViewModel>());
+                return new MvxCommand(() => ShowViewModel<StatesViewModel>());
             }
         }
 

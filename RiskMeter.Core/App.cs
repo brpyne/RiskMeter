@@ -1,4 +1,5 @@
 using Cirrious.CrossCore;
+using Cirrious.CrossCore.IoC;
 using Cirrious.MvvmCross.ViewModels;
 using RiskMeter.Core.Services;
 using RiskMeter.Core.ViewModels;
@@ -9,7 +10,11 @@ namespace RiskMeter.Core
     {
         public override void Initialize()
         {
-			Mvx.RegisterType<ICrimeStatisticsService, CrimeStatisticsService>();
+            CreatableTypes()
+                .EndingWith("Service")
+                    .AsInterfaces()
+                    .RegisterAsLazySingleton();
+
 			Mvx.RegisterSingleton<IMvxAppStart>(new MvxAppStart<MainViewModel>());
         }
     }
