@@ -5,15 +5,15 @@ namespace RiskMeter.Core.Services
 {
     public interface ILocationsService
     {
-        List<State> GetStates();
+        List<string> GetStates();
         List<string> GetCities(string stateCode);
     }
 
     public class LocationsService : BaseService, ILocationsService
     {
-        public List<State> GetStates()
+        public List<string> GetStates()
         {
-            var states = new List<State> { new State() { Name = "Michigan", Code = "MI" }, new State() { Name = "Ohio", Code = "OH" } };
+            var states = new List<string> { "Michigan", "Ohio" };
 
             return states;
         }

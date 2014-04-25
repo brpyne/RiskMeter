@@ -1,30 +1,43 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Input;
 using Cirrious.MvvmCross.ViewModels;
-using RiskMeter.Core.Models;
 using RiskMeter.Core.Services;
 
 namespace RiskMeter.Core.ViewModels
 {
     public class StatesViewModel : MvxViewModel
     {
-        //IObservableCollection
-        private List<State> _states;
+        private List<StateMenuItem> _stateItems;
 
         public StatesViewModel(ILocationsService locationsService)
         {
-            _states = locationsService.GetStates();
+            StateItems = locationsService.GetStates().Select(x => new StateMenuItem(x, this))
+                .OrderBy(x => x.Name)
+                .ToList();
         }
 
-        public List<State> States
+        public List<StateMenuItem> StateItems
         {
-            get { return _states; }
-            set { _states = value; RaisePropertyChanged(() => States); }
+            get { return _stateItems; }
+            set
+            {
+                _stateItems = value;
+                RaisePropertyChanged(() => StateItems);
+            }
         }
 
-        public ICommand SelectStateCommand(string stateCode)
+        public class StateMenuItem
         {
-            return new MvxCommand(() => ShowViewModel<CitiesViewModel>(stateCode));
+            public StateMenuItem(string name, StatesViewModel parent)
+            {
+                Name = name;
+                ShowCommand = new MvxCommand(() => parent.ShowViewModel<CitiesViewModel>(name));
+            }
+
+            public string Name { get; set; }
+
+            public ICommand ShowCommand { get; private set; }
         }
     }
 }

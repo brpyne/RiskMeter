@@ -18,14 +18,24 @@ namespace RiskMeter.UI.Touch.ViewControllers
         {
             base.ViewDidLoad();
 
-            var source = new MvxStandardTableViewSource(TableView, "TitleText Name");
+            var source = new TableSource(TableView);
+            this.AddBindings(new Dictionary<object, string>
+                {
+                    {source, "ItemsSource StateItems"}
+                });
+
             TableView.Source = source;
-
-            var set = this.CreateBindingSet<StatesViewController, StatesViewModel>();
-            set.Bind(source).To(vm => vm.States);
-            set.Apply();
-
             TableView.ReloadData();
+        }
+    }
+    public class TableSource : MvxStandardTableViewSource
+    {
+        private static readonly NSString Identifier = new NSString("MenuCellIdentifier");
+        private const string BindingText = "TitleText Name;SelectedCommand ShowCommand";
+
+        public TableSource(UITableView tableView)
+            : base(tableView, UITableViewCellStyle.Default, Identifier, BindingText)
+        {
         }
     }
 }
