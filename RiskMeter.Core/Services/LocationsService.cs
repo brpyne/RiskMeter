@@ -20,12 +20,12 @@ namespace RiskMeter.Core.Services
 
         public List<string> GetCities(string stateCode)
         {
-            if (stateCode.ToUpper() == "MI")
+            if (stateCode.ToLower() == "michigan")
             {
                 return new List<string> {"Detroit", "Sterling Heights"};
             }
 
-            if (stateCode.ToUpper() == "OH")
+            if (stateCode.ToLower() == "ohio")
             {
                 return new List<string> {"Cleveland", "Columbus"};
             }

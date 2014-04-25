@@ -32,7 +32,7 @@ namespace RiskMeter.Core.ViewModels
             public StateMenuItem(string name, StatesViewModel parent)
             {
                 Name = name;
-                ShowCommand = new MvxCommand(() => parent.ShowViewModel<CitiesViewModel>(name));
+                ShowCommand = new MvxCommand(() => parent.ShowViewModel<CitiesViewModel>(new { state = Name }));
             }
 
             public string Name { get; set; }
