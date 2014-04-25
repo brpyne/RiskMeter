@@ -17,7 +17,7 @@ namespace RiskMeter.Core.ViewModels
         {
             State = state;
             CityItems = _locationsService.GetCities(state)
-                .Select(x => new CityMenuItem(x, this))
+                .Select(x => new CityMenuItem(x, state, this))
                 .OrderBy(x => x.Name)
                 .ToList();
         }
@@ -44,13 +44,15 @@ namespace RiskMeter.Core.ViewModels
 
         public class CityMenuItem
         {
-            public CityMenuItem(string name, CitiesViewModel parent)
+            public CityMenuItem(string name, string state, CitiesViewModel parent)
             {
                 Name = name;
-                ShowCommand = new MvxCommand(() => parent.ShowViewModel<CitiesViewModel>(new { state = Name }));
+                State = state;
+                ShowCommand = new MvxCommand(() => parent.ShowViewModel<RiskViewModel>(new { city = Name, state = State }));
             }
 
             public string Name { get; set; }
+            public string State { get; set; }
 
             public ICommand ShowCommand { get; private set; }
         }

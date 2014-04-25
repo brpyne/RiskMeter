@@ -80,6 +80,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="ViewControllers\CitiesViewController.cs" />
+    <Compile Include="ViewControllers\RiskViewController.cs" />
     <Compile Include="ViewControllers\StatesViewController.cs" />
     <Compile Include="ViewControllers\MainViewController.cs" />
     <Compile Include="Views\CustomViewCell.cs" />

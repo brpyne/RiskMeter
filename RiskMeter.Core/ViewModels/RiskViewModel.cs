@@ -5,10 +5,22 @@ namespace RiskMeter.Core.ViewModels
 {
     public class RiskViewModel : MvxViewModel
     {
-        private Location _location;
+        private string _location;
         private int _score;
 
-        public Location Location
+        public RiskViewModel()
+        {
+            
+        }
+
+        public void Init(string city, string state)
+        {
+            Location = string.Format("{0}, {1}", city, state);
+
+            Score = 5;
+        }
+
+        public string Location
         {
             get { return _location; }
             set
