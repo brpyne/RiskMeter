@@ -20,15 +20,6 @@ namespace RiskMeter.UI.Touch.ViewControllers
             if (RespondsToSelector(new Selector("edgesForExtendedLayout")))
                EdgesForExtendedLayout = UIRectEdge.None;
 
-            var currentLocation = GetCurrentLocation();
-
-            var lblCurrentLocation = new UILabel
-            {
-                Text = currentLocation.ToString(),
-                Frame = new RectangleF(10, 10, 200, 50)
-            };
-            Add(lblCurrentLocation);
-
             var btnCurrentLocation = new UIButton(UIButtonType.RoundedRect) {Frame = new RectangleF(10, 100, 300, 50)};
             btnCurrentLocation.SetTitleColor(UIColor.Black, UIControlState.Normal);
             btnCurrentLocation.SetTitle("Current Location", UIControlState.Normal);
@@ -42,19 +33,9 @@ namespace RiskMeter.UI.Touch.ViewControllers
             Add(btnCustomLocation);
 
             var set = this.CreateBindingSet<MainViewController, Core.ViewModels.MainViewModel>();
-            set.Bind(currentLocation).To(vm => vm.CurrentLocation);
             set.Bind(btnCurrentLocation).To(vm => vm.CurrentLocationCommand);
             set.Bind(btnCustomLocation).To(vm => vm.CustomLocationCommand);
             set.Apply();
-        }
-
-        private Location GetCurrentLocation()
-        {
-            return new Location()
-            {
-                City = "Detroit",
-                State = "MI"
-            };
         }
     }
 }

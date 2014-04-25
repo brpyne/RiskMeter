@@ -37,7 +37,6 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Models\CrimeStatistics.cs" />
-    <Compile Include="Models\Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\CrimeStatisticsService.cs" />
@@ -73,6 +72,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\stateCodes.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

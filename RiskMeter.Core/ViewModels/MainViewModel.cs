@@ -9,20 +9,22 @@ namespace RiskMeter.Core.ViewModels
 	{
 		public MainViewModel ()
 		{
-		    _currentLocation = new Location()
-		    {
-		        City = "Detroit",
-		        State = "MI"
-		    };
 		}
 
-		private Location _currentLocation;
+        private string _currentState;
+        private string _currentCity;
 
-        public Location CurrentLocation
-		{
-			get { return _currentLocation; }
-			set { _currentLocation = value; RaisePropertyChanged(() => CurrentLocation); }
-		}
+        public string CurrentState
+        {
+            get { return _currentState; }
+            set { _currentState = value; RaisePropertyChanged(() => CurrentState); }
+        }
+
+        public string CurrentCity
+        {
+            get { return _currentCity; }
+            set { _currentCity = value; RaisePropertyChanged(() => CurrentCity); }
+        }
 
         public ICommand CustomLocationCommand
         {
