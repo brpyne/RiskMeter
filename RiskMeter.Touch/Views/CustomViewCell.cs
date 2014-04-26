@@ -1,6 +1,6 @@
 using MonoTouch.UIKit;
 
-namespace RiskMeter.UI.Touch.Views
+namespace RiskMeter.Touch.Views
 {
     public class CustomViewCell : UITableViewCell
     {

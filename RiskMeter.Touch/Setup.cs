@@ -3,7 +3,7 @@ using Cirrious.MvvmCross.ViewModels;
 using MonoTouch.UIKit;
 using RiskMeter.Core;
 
-namespace RiskMeter.UI.Touch
+namespace RiskMeter.Touch
 {
     public class Setup : MvxTouchSetup
     {

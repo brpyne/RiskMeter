@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using Cirrious.CrossCore.Platform;
 
-namespace RiskMeter.UI.Touch
+namespace RiskMeter.Touch
 {
     public class DebugTrace : IMvxTrace
     {

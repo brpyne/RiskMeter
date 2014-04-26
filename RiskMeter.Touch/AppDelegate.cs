@@ -7,7 +7,7 @@ using Cirrious.MvvmCross.ViewModels;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-namespace RiskMeter.UI.Touch
+namespace RiskMeter.Touch
 {
     [Register("AppDelegate")]
     public partial class AppDelegate : MvxApplicationDelegate

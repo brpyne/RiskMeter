@@ -13,7 +13,7 @@ namespace RiskMeter.Core.Services
         public DataService(ISQLiteConnectionFactory factory)
         {
             _connection = factory.Create("RiskMeter.sql");
-            _connection.CreateTable<CrimeStatistics>();
+            _connection.CreateTable<CrimeStatistic>();
         }
     }
 

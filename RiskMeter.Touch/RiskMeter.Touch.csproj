@@ -8,9 +8,9 @@
     <ProjectGuid>{81DE74D9-F649-4D35-BE83-CF3A15FBB18A}</ProjectGuid>
     <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
-    <RootNamespace>RiskMeter.UI.Touch</RootNamespace>
+    <RootNamespace>RiskMeter.Touch</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>RiskMeterUITouch</AssemblyName>
+    <AssemblyName>RiskMeterTouch</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -80,7 +80,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="ViewControllers\CitiesViewController.cs" />
-    <Compile Include="ViewControllers\RiskViewController.cs" />
+    <Compile Include="ViewControllers\CrimeViewController.cs" />
     <Compile Include="ViewControllers\StatesViewController.cs" />
     <Compile Include="ViewControllers\MainViewController.cs" />
     <Compile Include="Views\CustomViewCell.cs" />

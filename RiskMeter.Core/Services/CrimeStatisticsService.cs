@@ -9,35 +9,37 @@ namespace RiskMeter.Core.Services
 {
     public interface ICrimeStatisticsService
     {
-        int GetCrimeScore(Location location);
-        CrimeStatistics GetCrimeStatistics(Location location, int year);
+        int GetCrimeScore(string city, string state);
+        List<CrimeStatistic> GetCrimeStatistics(string city, string state, int year);
     }
 
     public class CrimeStatisticsService : BaseService, ICrimeStatisticsService
     {
         public CrimeStatisticsService()
         {
-            
         }
 
-        public int GetCrimeScore(Location location)
+        public int GetCrimeScore(string city, string state)
         {
             return 100;
         }
 
-        public CrimeStatistics GetCrimeStatistics(Location location, int year)
+        public List<CrimeStatistic> GetCrimeStatistics(string city, string state, int year)
         {
-            var crimeStatistics = new CrimeStatistics()
+            var crimeStatistics = new List<CrimeStatistic>()
             {
-                Location= location,
-                Year = year,
-                ArsonCount = 9,
-                AssaultCount = 182,
-                AutoTheftCount = 162,
-                BurglaryCount = 357,
-                MurderCount = 4,
-                RapeCount = 16,
-                RobberyCount = 30
+                new CrimeStatistic()
+                {
+                    Count = 5,
+                    Name = "Arson",
+                    Population = 100100
+                },
+                new CrimeStatistic()
+                {
+                    Count = 8,
+                    Name="Robbery",
+                    Population=100100
+                }
             };
 
             return crimeStatistics;

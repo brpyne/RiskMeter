@@ -11,21 +11,6 @@ namespace RiskMeter.Core.ViewModels
 		{
 		}
 
-        private string _currentState;
-        private string _currentCity;
-
-        public string CurrentState
-        {
-            get { return _currentState; }
-            set { _currentState = value; RaisePropertyChanged(() => CurrentState); }
-        }
-
-        public string CurrentCity
-        {
-            get { return _currentCity; }
-            set { _currentCity = value; RaisePropertyChanged(() => CurrentCity); }
-        }
-
         public ICommand CustomLocationCommand
         {
             get
@@ -38,7 +23,7 @@ namespace RiskMeter.Core.ViewModels
         {
             get
             {
-                return new MvxCommand(() => ShowViewModel<RiskViewModel>());
+                return new MvxCommand(() => ShowViewModel<CrimeViewModel>());
             }
         }
 	}

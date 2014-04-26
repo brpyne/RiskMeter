@@ -48,7 +48,7 @@ namespace RiskMeter.Core.ViewModels
             {
                 Name = name;
                 State = state;
-                ShowCommand = new MvxCommand(() => parent.ShowViewModel<RiskViewModel>(new { city = Name, state = State }));
+                ShowCommand = new MvxCommand(() => parent.ShowViewModel<CrimeViewModel>(new { city = Name, state = State }));
             }
 
             public string Name { get; set; }

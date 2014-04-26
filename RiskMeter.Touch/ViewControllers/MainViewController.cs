@@ -6,7 +6,7 @@ using MonoTouch.ObjCRuntime;
 using MonoTouch.UIKit;
 using RiskMeter.Core.Models;
 
-namespace RiskMeter.UI.Touch.ViewControllers
+namespace RiskMeter.Touch.ViewControllers
 {
     [Register("MainView")]
     public class MainViewController : MvxViewController
@@ -16,7 +16,6 @@ namespace RiskMeter.UI.Touch.ViewControllers
             View = new UIView(){ BackgroundColor = UIColor.White};
             base.ViewDidLoad();
 
-			// ios7 layout
             if (RespondsToSelector(new Selector("edgesForExtendedLayout")))
                EdgesForExtendedLayout = UIRectEdge.None;
 

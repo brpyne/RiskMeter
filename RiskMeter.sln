@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiskMeter.Core", "RiskMeter.Core\RiskMeter.Core.csproj", "{403AA3DE-D635-4E75-8C6E-34FACC20E7D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiskMeter.UI.Touch", "RiskMeter.UI.Touch\RiskMeter.UI.Touch.csproj", "{81DE74D9-F649-4D35-BE83-CF3A15FBB18A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiskMeter.Touch", "RiskMeter.Touch\RiskMeter.Touch.csproj", "{81DE74D9-F649-4D35-BE83-CF3A15FBB18A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -86,9 +86,9 @@ Global
 		{81DE74D9-F649-4D35-BE83-CF3A15FBB18A}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
 		{81DE74D9-F649-4D35-BE83-CF3A15FBB18A}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
 		{81DE74D9-F649-4D35-BE83-CF3A15FBB18A}.Debug|iPhoneSimulator.Deploy.0 = Debug|iPhoneSimulator
-		{81DE74D9-F649-4D35-BE83-CF3A15FBB18A}.Debug|Mixed Platforms.ActiveCfg = Debug|iPhoneSimulator
-		{81DE74D9-F649-4D35-BE83-CF3A15FBB18A}.Debug|Mixed Platforms.Build.0 = Debug|iPhoneSimulator
-		{81DE74D9-F649-4D35-BE83-CF3A15FBB18A}.Debug|Mixed Platforms.Deploy.0 = Debug|iPhoneSimulator
+		{81DE74D9-F649-4D35-BE83-CF3A15FBB18A}.Debug|Mixed Platforms.ActiveCfg = Debug|iPhone
+		{81DE74D9-F649-4D35-BE83-CF3A15FBB18A}.Debug|Mixed Platforms.Build.0 = Debug|iPhone
+		{81DE74D9-F649-4D35-BE83-CF3A15FBB18A}.Debug|Mixed Platforms.Deploy.0 = Debug|iPhone
 		{81DE74D9-F649-4D35-BE83-CF3A15FBB18A}.Release|Any CPU.ActiveCfg = Release|iPhone
 		{81DE74D9-F649-4D35-BE83-CF3A15FBB18A}.Release|iPhone.ActiveCfg = Release|iPhone
 		{81DE74D9-F649-4D35-BE83-CF3A15FBB18A}.Release|iPhone.Build.0 = Release|iPhone

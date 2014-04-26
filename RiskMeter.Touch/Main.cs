@@ -5,7 +5,7 @@ using System.Linq;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 
-namespace RiskMeter.UI.Touch
+namespace RiskMeter.Touch
 {
     public class Application
     {
