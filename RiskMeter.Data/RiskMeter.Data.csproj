@@ -49,10 +49,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="City.cs">
-      <DependentUpon>RiskMeterDbContext.tt</DependentUpon>
+      <DependentUpon>RiskMeterDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="CrimeStatistic.cs">
-      <DependentUpon>RiskMeterDbContext.tt</DependentUpon>
+      <DependentUpon>RiskMeterDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RiskMeterDatabase.Context.cs">
@@ -70,18 +70,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RiskMeterDatabase.edmx</DependentUpon>
     </Compile>
-    <Compile Include="RiskMeterDbContext.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RiskMeterDbContext.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="RiskMeterDbContext.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RiskMeterDbContext.tt</DependentUpon>
-    </Compile>
     <Compile Include="State.cs">
-      <DependentUpon>RiskMeterDbContext.tt</DependentUpon>
+      <DependentUpon>RiskMeterDatabase.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -103,16 +93,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>RiskMeterDatabase.edmx</DependentUpon>
       <LastGenOutput>RiskMeterDatabase.cs</LastGenOutput>
-    </None>
-    <None Include="RiskMeterDbContext.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>RiskMeterDbContext.Context.cs</LastGenOutput>
-      <DependentUpon>RiskMeterDatabase.edmx</DependentUpon>
-    </None>
-    <None Include="RiskMeterDbContext.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>RiskMeterDbContext.cs</LastGenOutput>
-      <DependentUpon>RiskMeterDatabase.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

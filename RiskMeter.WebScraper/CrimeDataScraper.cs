@@ -5,7 +5,8 @@ namespace RiskMeter.WebScraper
 {
     public class CrimeDataScraper : DataScraper
     {
-        public CrimeDataScraper(string documentPath) : base(documentPath)
+        public CrimeDataScraper(string city, string state)
+            : base("crime-"+city+"-"+state+".html")
         {
         }
 
@@ -15,6 +16,12 @@ namespace RiskMeter.WebScraper
 
             Console.WriteLine(crimeTableNode.WriteContentTo());
             // Returns the following...
+
+            // thead
+            //      tr/th/h4 Type, Year (x13)
+            //      tbody
+            //          tr/td[0]/b Type Value
+            //          tr/td[1-13] Statistic Value Year (x + 2000)
 
             /*
 <thead>

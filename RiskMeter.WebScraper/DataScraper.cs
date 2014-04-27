@@ -5,10 +5,10 @@ namespace RiskMeter.WebScraper
 {
     public abstract class DataScraper
     {
-        protected DataScraper(string documentPath)
+        protected DataScraper(string path)
         {
             Document = new HtmlDocument();
-            Document.Load(Environment.CurrentDirectory + documentPath);
+            Document.Load("http://www.city-data.com/crime/" + path);
         }
 
         protected HtmlDocument Document { get; set; }
