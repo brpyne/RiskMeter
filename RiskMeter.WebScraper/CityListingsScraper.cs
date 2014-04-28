@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HtmlAgilityPack;
 using RiskMeter.Data;
 
 namespace RiskMeter.WebScraper
@@ -18,10 +19,29 @@ namespace RiskMeter.WebScraper
 
         public void GetData()
         {
-            Logger.Log(Document.ToString());
-            // Loop through each city
-            // AddCity(name)
-            // new CrimeDataScraper(name, state)
+            Logger.Log(Url);
+            var cityAnchors = GetCityAnchors();
+        }
+
+        private List<HtmlNode> GetCityAnchors()
+        {
+            var anchorList = new List<HtmlNode>();
+            var anchors = Document.DocumentNode.SelectNodes("//a[@href]");
+
+            foreach (HtmlNode link in anchors)
+            {
+                var attribute = link.Attributes["href"];
+                var anchorLocation = attribute.Value;
+
+                if (anchorLocation.Contains("crime-"))
+                {
+                    anchorList.Add(link);
+
+                    Logger.Log(anchorLocation);
+                }
+            }
+
+            return anchorList;
         }
 
         public List<string> GetCities()

@@ -26,9 +26,7 @@ namespace RiskMeter.WebScraper
             }
             catch (Exception e)
             {
-                Logger.Log(e.Message + Environment.NewLine + e.ToString());
-
-                throw;
+                Logger.Log(e.Message);
             }
             finally
             {
