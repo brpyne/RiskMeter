@@ -1,38 +1,61 @@
-using System;
 using System.Net;
 using HtmlAgilityPack;
 
-namespace RiskMeter.WebScraper
+namespace RiskMeter.WebScraper.PageScrapers
 {
     public abstract class DataScraper
     {
         const string BaseUrl = "http://www.city-data.com/crime/";
 
+        private HtmlDocument _document;
+        private HtmlWeb _htmlWeb;
+
         private const string UserAgent =
             "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.59 Safari/537.36";
+
+        protected DataScraper()
+        {
+            Url = BaseUrl;
+
+
+        }
 
         protected DataScraper(string url)
         {
             Url = BaseUrl + url;
-            Web = new HtmlWeb
-            {
-                UserAgent = UserAgent,
-                UseCookies = true,
-                AutoDetectEncoding = true,
-                PreRequest = OnPreRequest
-            };
-
-            Cookies.Add(new Cookie());
-
-            Document = new HtmlDocument();
-            Document = Web.Load(Url);
         }
 
         protected string Url { get; set; }
-        protected HtmlWeb Web { get; set; }
-        protected HtmlDocument Document { get; set; }
 
-        public CookieCollection Cookies
+        protected HtmlDocument Document
+        {
+            get
+            {
+                if (_document == null)
+                {
+                    _document = new HtmlDocument();
+                    _document = Web.Load(Url);
+                }
+
+                return _document;
+            }
+        }
+
+        protected HtmlWeb Web
+        {
+            get
+            {
+                return _htmlWeb ?? (_htmlWeb = new HtmlWeb
+                {
+                    UserAgent = UserAgent,
+                    UseCookies = true,
+                    AutoDetectEncoding = true,
+                    PreRequest = OnPreRequest
+                });
+            }
+        }
+
+        protected CookieCollection Cookies
         {
             get
             {
@@ -48,7 +71,7 @@ namespace RiskMeter.WebScraper
             }
         }
 
-        protected bool OnPreRequest(HttpWebRequest request)
+        private bool OnPreRequest(HttpWebRequest request)
         {
             AddCookiesTo(request);
 

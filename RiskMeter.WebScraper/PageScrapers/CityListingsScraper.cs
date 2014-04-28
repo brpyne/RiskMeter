@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using HtmlAgilityPack;
 using RiskMeter.Data;
 
-namespace RiskMeter.WebScraper
+namespace RiskMeter.WebScraper.PageScrapers
 {
-    public class CityListingsScraper : DataScraper
+    public class CityListingsScraper : ListingsScraper
     {
         public CityListingsScraper(State state) : base("crime-"+state.Name+".html")
         {
@@ -20,29 +17,9 @@ namespace RiskMeter.WebScraper
         public void GetData()
         {
             Logger.Log(Url);
-            var cityAnchors = GetCityAnchors();
+            var cityAnchors = GetCrimeDocumentAnchors();
         }
 
-        private List<HtmlNode> GetCityAnchors()
-        {
-            var anchorList = new List<HtmlNode>();
-            var anchors = Document.DocumentNode.SelectNodes("//a[@href]");
-
-            foreach (HtmlNode link in anchors)
-            {
-                var attribute = link.Attributes["href"];
-                var anchorLocation = attribute.Value;
-
-                if (anchorLocation.Contains("crime-"))
-                {
-                    anchorList.Add(link);
-
-                    Logger.Log(anchorLocation);
-                }
-            }
-
-            return anchorList;
-        }
 
         public List<string> GetCities()
         {

@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HtmlAgilityPack;
 using RiskMeter.Data;
+using RiskMeter.WebScraper.PageScrapers;
 
 namespace RiskMeter.WebScraper
 {
@@ -14,13 +16,6 @@ namespace RiskMeter.WebScraper
             try
             {
                 Logger.Log("Starting Service...");
-
-                foreach (State state in GetStates())
-                {
-                    Logger.Log("State: " + state.Name);
-                    var stateListingsScraper = new CityListingsScraper(state);
-                    stateListingsScraper.GetData();
-                }
 
 
             }
@@ -34,12 +29,11 @@ namespace RiskMeter.WebScraper
             }
         }
 
-        public List<State> GetStates()
+        private List<string> GetCityListingUrls()
         {
-            using (var db = new RiskMeterEntities())
-            {
-                return db.States.ToList();
-            }
+            var statesScraper = new ListingsScraper();
+            var stateAnchors = statesScraper.GetCrimeDocumentAnchors();
+            return stateAnchors.Select(link => link.Attributes["href"].Value).ToList();
         }
     }
 }

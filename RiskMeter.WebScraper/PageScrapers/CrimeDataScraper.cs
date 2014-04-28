@@ -1,7 +1,7 @@
 ﻿using System;
 using HtmlAgilityPack;
 
-namespace RiskMeter.WebScraper
+namespace RiskMeter.WebScraper.PageScrapers
 {
     public class CrimeDataScraper : DataScraper
     {
