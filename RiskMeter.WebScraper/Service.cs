@@ -19,6 +19,7 @@ namespace RiskMeter.WebScraper
                 {
                     Logger.Log("State: " + state.Name);
                     var stateListingsScraper = new CityListingsScraper(state);
+                    stateListingsScraper.GetData();
                 }
 
 
