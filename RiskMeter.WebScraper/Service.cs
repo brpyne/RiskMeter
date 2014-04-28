@@ -11,26 +11,35 @@ namespace RiskMeter.WebScraper
     {
         public void Start()
         {
-            foreach (string state in GetStates())
+            try
             {
-                var stateListingsScraper = new CityListingsScraper(state);
+                Logger.Log("Starting Service...");
+
+                foreach (State state in GetStates())
+                {
+                    Logger.Log("State: " + state.Name);
+                    var stateListingsScraper = new CityListingsScraper(state);
+                }
 
 
             }
+            catch (Exception e)
+            {
+                Logger.Log(e.Message + Environment.NewLine + e.ToString());
 
-            // 3. Retrieve crime data from each city for storage
-            // /data/detroit-data.htm
-            var scraper = new CrimeDataScraper("/Data/detroit-data.htm");
-            scraper.GetData();
-
-            Console.ReadLine();
+                throw;
+            }
+            finally
+            {
+                Console.ReadLine();
+            }
         }
 
-        public List<string> GetStates()
+        public List<State> GetStates()
         {
             using (var db = new RiskMeterEntities())
             {
-                return db.States.Select(x => x.Name).ToList();
+                return db.States.ToList();
             }
         }
     }

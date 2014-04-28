@@ -9,19 +9,17 @@ namespace RiskMeter.WebScraper
 {
     public class CityListingsScraper : DataScraper
     {
-        private string _state;
-        private string _stateCode;
-
-        public CityListingsScraper(string state) : base("crime-"+state+".html")
+        public CityListingsScraper(State state) : base("crime-"+state+".html")
         {
-            _state = state;
-            _stateCode = GetStateCode(state);
+            State = state;
         }
+
+        public State State { get; set; }
 
         public void GetData()
         {
             // Loop through each city
-                // SaveCity(name)
+                // AddCity(name)
                 // new CrimeDataScraper(name, state)
         }
 
@@ -30,16 +28,19 @@ namespace RiskMeter.WebScraper
             return new List<string>();
         }
 
-        public void SaveCity(string city)
-        {
-            
-        }
-
-        private string GetStateCode(string state)
+        public void AddCity(string city)
         {
             using (var db = new RiskMeterEntities())
             {
-                return db.States.Where(x => x.Name == state).Select(x => x.StateCode).FirstOrDefault();
+                db.Cities.Add(new City()
+                {
+                    Name = city,
+                    StateCode = State.StateCode
+                });
+
+                var logMessage = string.Format("Saving {0}, {1}", city, State.StateCode);
+                Logger.Log(logMessage);
+                //db.SaveChanges();
             }
         }
     }
