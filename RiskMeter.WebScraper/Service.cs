@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
 using RiskMeter.Data;
-using RiskMeter.WebScraper.PageScrapers;
+using RiskMeter.WebScraper.Pages;
 
 namespace RiskMeter.WebScraper
 {
@@ -20,13 +20,13 @@ namespace RiskMeter.WebScraper
                 var cityUrls = GetCityListingUrls();
                 foreach (string url in cityUrls)
                 {
-                    var cityListingScraper = new CityListingsScraper(url);
+                    var cityListingScraper = new CityListingsPage(url);
                     cityListingScraper.GetData();
                 }
             }
             catch (Exception e)
             {
-                Logger.Log(e.Message);
+                Logger.Log(e.ToString());
             }
             finally
             {
@@ -36,7 +36,7 @@ namespace RiskMeter.WebScraper
 
         private IEnumerable<string> GetCityListingUrls()
         {
-            var statesScraper = new ListingsScraper();
+            var statesScraper = new ListingsPage();
             var stateAnchors = statesScraper.GetCrimeDocumentAnchors();
             return stateAnchors.Select(link => link.Attributes["href"].Value).ToList();
         }

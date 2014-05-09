@@ -17,15 +17,9 @@ namespace RiskMeter.Data
         public int CrimeStatisticId { get; set; }
         public int CityId { get; set; }
         public int Year { get; set; }
-        public int MurderCount { get; set; }
-        public int RapeCount { get; set; }
-        public int RobberyCount { get; set; }
-        public int AssaultCount { get; set; }
-        public int BurglaryCount { get; set; }
-        public int TheftCount { get; set; }
-        public int AutoTheftCount { get; set; }
-        public int ArsonCount { get; set; }
-        public int Population { get; set; }
+        public string Name { get; set; }
+        public int Value { get; set; }
+        public decimal ValuePer { get; set; }
     
         public virtual City City { get; set; }
     }

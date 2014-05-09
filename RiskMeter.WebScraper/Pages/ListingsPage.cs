@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using HtmlAgilityPack;
-using RiskMeter.WebScraper.PageScrapers;
 
 namespace RiskMeter.WebScraper.Pages
 {

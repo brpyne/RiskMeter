@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="RiskMeterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="RiskMeterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cities">
           <Key>
             <PropertyRef Name="CityId" />
@@ -20,15 +20,9 @@
           <Property Name="CrimeStatisticId" Type="int" Nullable="false" />
           <Property Name="CityId" Type="int" Nullable="false" />
           <Property Name="Year" Type="int" Nullable="false" />
-          <Property Name="MurderCount" Type="int" Nullable="false" />
-          <Property Name="RapeCount" Type="int" Nullable="false" />
-          <Property Name="RobberyCount" Type="int" Nullable="false" />
-          <Property Name="AssaultCount" Type="int" Nullable="false" />
-          <Property Name="BurglaryCount" Type="int" Nullable="false" />
-          <Property Name="TheftCount" Type="int" Nullable="false" />
-          <Property Name="AutoTheftCount" Type="int" Nullable="false" />
-          <Property Name="ArsonCount" Type="int" Nullable="false" />
-          <Property Name="Population" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Value" Type="int" Nullable="false" />
+          <Property Name="ValuePer" Type="decimal" Precision="8" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="States">
           <Key>
@@ -74,8 +68,7 @@
             <End Role="CrimeStatistics" EntitySet="CrimeStatistics" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="RiskMeterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -87,25 +80,7 @@
           <Property Name="StateCode" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="State" Relationship="Self.FK_Cities_States" FromRole="Cities" ToRole="States" />
-          <NavigationProperty Name="CrimeStatistics" Relationship="Self.FK_CrimeStatistics_CrimeStatistics" FromRole="Cities" ToRole="CrimeStatistics" />
-        </EntityType>
-        <EntityType Name="CrimeStatistic">
-          <Key>
-            <PropertyRef Name="CrimeStatisticId" />
-          </Key>
-          <Property Name="CrimeStatisticId" Type="Int32" Nullable="false" />
-          <Property Name="CityId" Type="Int32" Nullable="false" />
-          <Property Name="Year" Type="Int32" Nullable="false" />
-          <Property Name="MurderCount" Type="Int32" Nullable="false" />
-          <Property Name="RapeCount" Type="Int32" Nullable="false" />
-          <Property Name="RobberyCount" Type="Int32" Nullable="false" />
-          <Property Name="AssaultCount" Type="Int32" Nullable="false" />
-          <Property Name="BurglaryCount" Type="Int32" Nullable="false" />
-          <Property Name="TheftCount" Type="Int32" Nullable="false" />
-          <Property Name="AutoTheftCount" Type="Int32" Nullable="false" />
-          <Property Name="ArsonCount" Type="Int32" Nullable="false" />
-          <Property Name="Population" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="City" Relationship="Self.FK_CrimeStatistics_CrimeStatistics" FromRole="CrimeStatistics" ToRole="Cities" />
+          <NavigationProperty Name="CrimeStatistics" Relationship="RiskMeterModel.FK_CrimeStatistics_CrimeStatistics" FromRole="City" ToRole="CrimeStatistic" />
         </EntityType>
         <EntityType Name="State">
           <Key>
@@ -127,31 +102,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CrimeStatistics_CrimeStatistics">
-          <End Role="Cities" Type="Self.City" Multiplicity="1" />
-          <End Role="CrimeStatistics" Type="Self.CrimeStatistic" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cities">
-              <PropertyRef Name="CityId" />
-            </Principal>
-            <Dependent Role="CrimeStatistics">
-              <PropertyRef Name="CityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="RiskMeterEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cities" EntityType="Self.City" />
-          <EntitySet Name="CrimeStatistics" EntityType="Self.CrimeStatistic" />
           <EntitySet Name="States" EntityType="Self.State" />
           <AssociationSet Name="FK_Cities_States" Association="Self.FK_Cities_States">
             <End Role="States" EntitySet="States" />
             <End Role="Cities" EntitySet="Cities" />
           </AssociationSet>
-          <AssociationSet Name="FK_CrimeStatistics_CrimeStatistics" Association="Self.FK_CrimeStatistics_CrimeStatistics">
-            <End Role="Cities" EntitySet="Cities" />
-            <End Role="CrimeStatistics" EntitySet="CrimeStatistics" />
+          <EntitySet Name="CrimeStatistics" EntityType="RiskMeterModel.CrimeStatistic" />
+          <AssociationSet Name="FK_CrimeStatistics_CrimeStatistics" Association="RiskMeterModel.FK_CrimeStatistics_CrimeStatistics">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="CrimeStatistic" EntitySet="CrimeStatistics" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="CrimeStatistic">
+          <Key>
+            <PropertyRef Name="CrimeStatisticId" />
+          </Key>
+          <Property Name="CrimeStatisticId" Type="Int32" Nullable="false" />
+          <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Value" Type="Int32" Nullable="false" />
+          <Property Name="ValuePer" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
+          <NavigationProperty Name="City" Relationship="RiskMeterModel.FK_CrimeStatistics_CrimeStatistics" FromRole="CrimeStatistic" ToRole="City" />
+        </EntityType>
+        <Association Name="FK_CrimeStatistics_CrimeStatistics">
+          <End Type="RiskMeterModel.City" Role="City" Multiplicity="1" />
+          <End Type="RiskMeterModel.CrimeStatistic" Role="CrimeStatistic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="CrimeStatistic">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -167,29 +154,23 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CrimeStatistics">
-            <EntityTypeMapping TypeName="RiskMeterModel.CrimeStatistic">
-              <MappingFragment StoreEntitySet="CrimeStatistics">
-                <ScalarProperty Name="CrimeStatisticId" ColumnName="CrimeStatisticId" />
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
-                <ScalarProperty Name="Year" ColumnName="Year" />
-                <ScalarProperty Name="MurderCount" ColumnName="MurderCount" />
-                <ScalarProperty Name="RapeCount" ColumnName="RapeCount" />
-                <ScalarProperty Name="RobberyCount" ColumnName="RobberyCount" />
-                <ScalarProperty Name="AssaultCount" ColumnName="AssaultCount" />
-                <ScalarProperty Name="BurglaryCount" ColumnName="BurglaryCount" />
-                <ScalarProperty Name="TheftCount" ColumnName="TheftCount" />
-                <ScalarProperty Name="AutoTheftCount" ColumnName="AutoTheftCount" />
-                <ScalarProperty Name="ArsonCount" ColumnName="ArsonCount" />
-                <ScalarProperty Name="Population" ColumnName="Population" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="States">
             <EntityTypeMapping TypeName="RiskMeterModel.State">
               <MappingFragment StoreEntitySet="States">
                 <ScalarProperty Name="StateCode" ColumnName="StateCode" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CrimeStatistics">
+            <EntityTypeMapping TypeName="RiskMeterModel.CrimeStatistic">
+              <MappingFragment StoreEntitySet="CrimeStatistics">
+                <ScalarProperty Name="ValuePer" ColumnName="ValuePer" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="CrimeStatisticId" ColumnName="CrimeStatisticId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

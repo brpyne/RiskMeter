@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using RiskMeter.Data;
 
 namespace RiskMeter.WebScraper.Repositories
@@ -27,6 +28,27 @@ namespace RiskMeter.WebScraper.Repositories
             {
                 string logMessage = string.Format("Failed to save city: {0}, {1}", cityName, stateCode);
                 Logger.Log(logMessage);
+            }
+        }
+
+        public static City GetCity(string cityName, string stateCode)
+        {
+            try
+            {
+                using (var db = new RiskMeterEntities())
+                {
+                    return
+                        db.Cities.FirstOrDefault(
+                            x => x.Name.ToLower() == cityName.ToLower() &&
+                                 x.StateCode.ToLower() == stateCode.ToLower());
+                }
+            }
+            catch (Exception e)
+            {
+                string logMessage = string.Format("Failed to get city: {0}, {1}", cityName, stateCode);
+                Logger.Log(logMessage);
+
+                throw;
             }
         }
     }

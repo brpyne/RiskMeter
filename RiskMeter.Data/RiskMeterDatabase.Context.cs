@@ -26,7 +26,7 @@ namespace RiskMeter.Data
         }
     
         public virtual DbSet<City> Cities { get; set; }
-        public virtual DbSet<CrimeStatistic> CrimeStatistics { get; set; }
         public virtual DbSet<State> States { get; set; }
+        public virtual DbSet<CrimeStatistic> CrimeStatistics { get; set; }
     }
 }

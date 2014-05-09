@@ -64,10 +64,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Logger.cs" />
-    <Compile Include="PageScrapers\CityListingsScraper.cs" />
-    <Compile Include="PageScrapers\CrimeDataScraper.cs" />
-    <Compile Include="PageScrapers\DataScraper.cs" />
-    <Compile Include="PageScrapers\ListingsScraper.cs" />
+    <Compile Include="Pages\CityListingsPage.cs" />
+    <Compile Include="Pages\CityCrimePage.cs" />
+    <Compile Include="Pages\CityDataPage.cs" />
+    <Compile Include="Pages\ListingsPage.cs" />
+    <Compile Include="Pages\Nodes\CrimeTable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CitiesRepository.cs" />
