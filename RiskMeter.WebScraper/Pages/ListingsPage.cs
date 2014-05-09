@@ -1,15 +1,16 @@
 ﻿using System.Collections.Generic;
 using HtmlAgilityPack;
+using RiskMeter.WebScraper.PageScrapers;
 
-namespace RiskMeter.WebScraper.PageScrapers
+namespace RiskMeter.WebScraper.Pages
 {
-    public class ListingsScraper : DataScraper
+    public class ListingsPage : CityDataPage
     {
-        public ListingsScraper()
+        public ListingsPage()
         {
         }
 
-        public ListingsScraper(string url) : base(url)
+        public ListingsPage(string path) : base(path)
         {
         }
 
@@ -23,12 +24,9 @@ namespace RiskMeter.WebScraper.PageScrapers
                 HtmlAttribute attribute = link.Attributes["href"];
                 string anchorLocation = attribute.Value;
 
-                if (anchorLocation.Contains("crime-"))
-                {
-                    anchorList.Add(link);
+                if (!anchorLocation.Contains("crime-")) continue;
 
-                    Logger.Log(anchorLocation);
-                }
+                anchorList.Add(link);
             }
 
             return anchorList;

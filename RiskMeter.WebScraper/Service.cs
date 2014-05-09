@@ -17,7 +17,12 @@ namespace RiskMeter.WebScraper
             {
                 Logger.Log("Starting Service...");
 
-
+                var cityUrls = GetCityListingUrls();
+                foreach (string url in cityUrls)
+                {
+                    var cityListingScraper = new CityListingsScraper(url);
+                    cityListingScraper.GetData();
+                }
             }
             catch (Exception e)
             {
@@ -29,7 +34,7 @@ namespace RiskMeter.WebScraper
             }
         }
 
-        private List<string> GetCityListingUrls()
+        private IEnumerable<string> GetCityListingUrls()
         {
             var statesScraper = new ListingsScraper();
             var stateAnchors = statesScraper.GetCrimeDocumentAnchors();

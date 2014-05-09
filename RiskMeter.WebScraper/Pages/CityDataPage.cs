@@ -1,31 +1,33 @@
+using System.Linq;
 using System.Net;
 using HtmlAgilityPack;
 
-namespace RiskMeter.WebScraper.PageScrapers
+namespace RiskMeter.WebScraper.Pages
 {
-    public abstract class DataScraper
+    public abstract class CityDataPage
     {
         const string BaseUrl = "http://www.city-data.com/crime/";
-
-        private HtmlDocument _document;
-        private HtmlWeb _htmlWeb;
 
         private const string UserAgent =
             "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.59 Safari/537.36";
 
-        protected DataScraper()
+        private HtmlDocument _document;
+        private HtmlWeb _htmlWeb;
+
+        protected CityDataPage() : this(string.Empty)
         {
-            Url = BaseUrl;
-
-
         }
 
-        protected DataScraper(string url)
+        protected CityDataPage(string path)
         {
-            Url = BaseUrl + url;
+            Path = path;
         }
 
-        protected string Url { get; set; }
+        protected string Url
+        {
+            get { return BaseUrl + Path; }
+        }
+        protected string Path { get; set; }
 
         protected HtmlDocument Document
         {
@@ -50,25 +52,21 @@ namespace RiskMeter.WebScraper.PageScrapers
                     UserAgent = UserAgent,
                     UseCookies = true,
                     AutoDetectEncoding = true,
-                    PreRequest = OnPreRequest
+                    PreRequest = OnPreRequest,
+                    PostResponse = OnAfterResponse
                 });
             }
         }
 
-        protected CookieCollection Cookies
+        protected CookieCollection Cookies { get; set; }
+
+        protected string GetDocumentTitle()
         {
-            get
-            {
-                return new CookieCollection()
-                {
-                    new Cookie("__qca", "P0-1845033264-1396026927988", "/", "city-data.com"),
-                    new Cookie("BCSI-AC-8cb6d2318d5100e4", "226E2A62000000063j2AsUvCJWzd3mQZVMvoAAD3O6gDAAAABgAAANgJCQAg/QAAAAAAAIsrAAA=", "/", "city-data.com"),
-                    new Cookie("__utma", "26892847.434413862.1396026929.1398634598.1398705941.6", "/", "city-data.com"),
-                    new Cookie("__utmb", "26892847.5.10.1398705941", "/", "city-data.com"),
-                    new Cookie("__utmc", "26892847", "/", "city-data.com"),
-                    new Cookie("__utmz", "26892847.1396027363.2.2.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided)", "/", "city-data.com"),
-                };
-            }
+            var singleOrDefault = Document.DocumentNode.Descendants("title").SingleOrDefault();
+            if (singleOrDefault != null)
+                return singleOrDefault.InnerText;
+                
+            return string.Empty;
         }
 
         private bool OnPreRequest(HttpWebRequest request)
@@ -77,7 +75,19 @@ namespace RiskMeter.WebScraper.PageScrapers
 
             return true;
         }
+        private void OnAfterResponse(HttpWebRequest request, HttpWebResponse response)
+        {
+            SaveCookiesFrom(response);
+        }
 
+        private void SaveCookiesFrom(HttpWebResponse response)
+        {
+            if (response.Cookies.Count > 0)
+            {
+                if (Cookies == null) Cookies = new CookieCollection();
+                Cookies.Add(response.Cookies);
+            }
+        }
         private void AddCookiesTo(HttpWebRequest request)
         {
             if (Cookies != null && Cookies.Count > 0)
